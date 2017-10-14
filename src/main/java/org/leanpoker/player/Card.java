@@ -10,8 +10,7 @@ public class Card {
 
 
     public Card(String rank, String suit) {
-        switch(rank)
-        {
+        switch (rank) {
             case "J":
                 this.rank = 11;
                 break;
@@ -28,9 +27,18 @@ public class Card {
                 this.rank = Integer.getInteger(rank);
 
         }
-        Suit a = Suit.valueOf(suit);
-        this.cardsuit = a.ordinal();
-        System.out.println("Card "+  rank +" " +cardsuit);
+        try {
+
+
+            Suit a = Suit.valueOf(suit);
+            this.cardsuit = a.ordinal();
+            System.out.println("Card " + rank + " " + cardsuit);
+
+        }catch (Exception e)
+        {
+            System.out.print("Card convertierung fehlgeschlagen");
+            this.cardsuit = 0;
+        }
     }
 
     enum Suit{

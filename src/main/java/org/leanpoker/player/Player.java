@@ -11,7 +11,12 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         try {
-            JsonArray asJsonArray = request.getAsJsonObject().getAsJsonArray("Game");
+            System.out.print("in bet");
+            JsonArray asJsonArray = request.getAsJsonObject().getAsJsonArray("Game state");
+            for (int i =0;i<asJsonArray.size(); i++) {
+                System.out.print(asJsonArray.get(i).getAsString());
+            }
+                asJsonArray = request.getAsJsonObject().getAsJsonArray("Game");
             for (int i =0;i<asJsonArray.size(); i++) {
                 System.out.print(asJsonArray.get(i).getAsString());
 

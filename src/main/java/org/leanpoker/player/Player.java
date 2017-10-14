@@ -13,9 +13,10 @@ public class Player {
     public static int betRequest(JsonElement request) {
         try {
             System.out.print("in bet");
+
             JsonObject jsonObject = request.getAsJsonObject();
             JsonElement small_blind = jsonObject.get("small_blind");
-
+            JsonElement current_buy_in = jsonObject.get("current_buy_in");
             System.out.print(small_blind.getAsString());
 
             return 1000;
@@ -28,7 +29,7 @@ public class Player {
         }
     }
     public static void showdown(JsonElement game) {
-
+        System.out.print("in showdown");
     }
 }
 

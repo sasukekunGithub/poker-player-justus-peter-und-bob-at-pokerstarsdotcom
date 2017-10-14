@@ -3,6 +3,7 @@ package org.leanpoker.player;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 
 public class Player {
@@ -12,16 +13,12 @@ public class Player {
     public static int betRequest(JsonElement request) {
         try {
             System.out.print("in bet");
-            JsonArray asJsonArray = request.getAsJsonObject().getAsJsonArray("Game state");
-            for (int i =0;i<asJsonArray.size(); i++) {
-                System.out.print(asJsonArray.get(i).getAsString());
-            }
-                asJsonArray = request.getAsJsonObject().getAsJsonArray("Game");
-            for (int i =0;i<asJsonArray.size(); i++) {
-                System.out.print(asJsonArray.get(i).getAsString());
+            JsonObject jsonObject = request.getAsJsonObject();
+            JsonElement small_blind = jsonObject.get("small_blind");
 
+            System.out.print(small_blind.getAsString());
 
-            } return 1000;
+            return 1000;
 
         }
         catch (Exception e)
@@ -31,19 +28,7 @@ public class Player {
         }
     }
     public static void showdown(JsonElement game) {
-        try {
-            JsonArray asJsonArray = game.getAsJsonObject().getAsJsonArray("Game");
-            for (int i =0;i<asJsonArray.size(); i++) {
-                System.out.print(asJsonArray.get(i).getAsString());
 
-
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-
-        }
     }
 }
 

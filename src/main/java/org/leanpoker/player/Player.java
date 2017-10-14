@@ -14,6 +14,7 @@ public class Player {
         int minimumraise = asJsonArray.getAsJsonObject().get("minimum_raise").getAsInt();
         int currentbuyin = asJsonArray.getAsJsonObject().get("current_buy_in").getAsInt();
 
+
         return currentbuyin+minimumraise+1;
     }
 

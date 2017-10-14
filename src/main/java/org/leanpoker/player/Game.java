@@ -32,14 +32,14 @@ public class Game {
 
         allCardsInGame = new ArrayList<Card>();
         JsonArray ourCards = ourPlayer.get("hole_cards").getAsJsonArray();
-        System.out.print("Card size " + ourCards.size() + " Round " + round);
+        System.out.println("Card size " + ourCards.size() + " Round " + round);
         for (int i = 0; i < ourCards.size(); i++) {
-
             JsonObject oneCard = ourCards.get(i).getAsJsonObject();
             System.out.println("One Card ermittelt");
             String rank = oneCard.get("rank").getAsString();
             String suit = oneCard.get("suit").getAsString();
             allCardsInGame.add(new Card(rank, suit));
+            System.out.println("Card addded");
         }
 
 

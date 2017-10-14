@@ -27,18 +27,9 @@ public class Card {
                 this.rank = Integer.getInteger(rank);
 
         }
-        try {
-
-
             Suit a = Suit.valueOf(suit);
             this.cardsuit = a.ordinal();
             System.out.println("Card " + rank + " " + cardsuit);
-
-        }catch (Exception e)
-        {
-            System.out.print("Card convertierung fehlgeschlagen");
-            this.cardsuit = 0;
-        }
     }
 
     enum Suit{

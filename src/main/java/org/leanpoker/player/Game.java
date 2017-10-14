@@ -19,7 +19,7 @@ public class Game {
         smallBlind = jsonObject.get("small_blind").getAsInt();
         currentBuyIn = jsonObject.get("current_buy_in").getAsInt();
         minimumRaise = jsonObject.get("minimum_raise").getAsInt();
-        minimumRaise = jsonObject.get("round").getAsInt();
+        round = jsonObject.get("round").getAsInt();
 
 
         JsonArray players = jsonObject.get("players").getAsJsonArray();
@@ -33,7 +33,7 @@ public class Game {
             JsonObject oneCard = ourCards.get(i).getAsJsonObject();
             String rank = oneCard.get("rank").getAsString();
             String suit = oneCard.get("suit").getAsString();
-            //Card card = new Card(rank, suit);
+            Card card = new Card(rank, suit);
         }
 
 

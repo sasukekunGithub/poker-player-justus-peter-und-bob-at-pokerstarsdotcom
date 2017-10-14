@@ -17,9 +17,13 @@ public class Player {
             JsonObject jsonObject = request.getAsJsonObject();
             JsonElement small_blind = jsonObject.get("small_blind");
             JsonElement current_buy_in = jsonObject.get("current_buy_in");
-            System.out.println(small_blind.getAsString());
-            System.err.println("in bet err");
-            return 1000;
+            JsonElement minimum_raise = jsonObject.get("minimum_raise");
+
+            System.out.println("SmallBlind" + small_blind.getAsInt());
+            System.out.println("Current_buy_in" + current_buy_in.getAsInt());
+            System.out.println("minimum_raise" + minimum_raise.getAsInt());
+
+            return current_buy_in.getAsInt() + minimum_raise.getAsInt() ;
 
         }
         catch (Exception e)

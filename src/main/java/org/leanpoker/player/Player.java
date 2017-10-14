@@ -18,11 +18,9 @@ public class Player {
 
             Game myGame = new Game(jsonObject);
 
-            System.out.println("SmallBlind" + myGame.smallBlind);
-            System.out.println("Current_buy_in" + myGame.currentBuyIn);
-            System.out.println("minimum_raise" + myGame.minimumRaise);
 
-            return myGame.currentBuyIn + myGame.minimumRaise ;
+
+            return myGame.currentBuyIn - myGame.ourLastBet + myGame.minimumRaise;
 
         }
         catch (Exception e)

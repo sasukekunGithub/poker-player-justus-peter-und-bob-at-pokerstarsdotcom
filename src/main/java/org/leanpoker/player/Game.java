@@ -33,7 +33,7 @@ public class Game {
             JsonObject oneCard = ourCards.get(i).getAsJsonObject();
             String rank = oneCard.get("rank").getAsString();
             String suit = oneCard.get("suit").getAsString();
-            Card card = new Card(rank, suit);
+            //Card card = new Card(rank, suit);
         }
 
 

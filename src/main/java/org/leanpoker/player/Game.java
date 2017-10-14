@@ -3,6 +3,9 @@ package org.leanpoker.player;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by sebmaster on 14.10.17.
@@ -13,6 +16,7 @@ public class Game {
     int minimumRaise;
     int round;
     int ourLastBet;
+    List<Card> allCardsInGame =new ArrayList<Card>();
     Card[] ourHand;
 
     public Game(JsonObject jsonObject) {
@@ -33,8 +37,10 @@ public class Game {
             JsonObject oneCard = ourCards.get(i).getAsJsonObject();
             String rank = oneCard.get("rank").getAsString();
             String suit = oneCard.get("suit").getAsString();
-            Card card = new Card(rank, suit);
+            allCardsInGame.add(new Card(rank, suit));
         }
+
+
 
 
         System.out.println("SmallBlind" + smallBlind);
@@ -42,5 +48,15 @@ public class Game {
         System.out.println("minimum_raise" + minimumRaise);
         System.out.println("round" + round);
 
+    }
+
+    public int bet() {
+        if (allCardsInGame.size() == 2 && (allCardsInGame.get(0).rank == allCardsInGame.get(1).rank)) {
+            //TODO:
+            return currentBuyIn - ourLastBet + minimumRaise + minimumRaise;
+        } else {
+            return currentBuyIn - ourLastBet + minimumRaise;
+
+        }
     }
 }

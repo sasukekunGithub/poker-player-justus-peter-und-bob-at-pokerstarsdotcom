@@ -17,17 +17,14 @@ public class Player {
             JsonObject jsonObject = request.getAsJsonObject();
 
             Game myGame = new Game(jsonObject);
-
-
-
-            return myGame.currentBuyIn - myGame.ourLastBet + myGame.minimumRaise;
+            return myGame.bet();
 
         }
         catch (Exception e)
         {
             System.err.println("in bet in catch");
             System.out.println(e.getMessage());
-            return 0;
+            return 100;
         }
     }
     public static void showdown(JsonElement game){

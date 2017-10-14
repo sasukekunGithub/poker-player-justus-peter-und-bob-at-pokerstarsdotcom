@@ -30,6 +30,7 @@ public class Card {
         }
         Suit a = Suit.valueOf(suit);
         this.cardsuit = a.ordinal();
+        System.out.println("Card "+  rank +" " +cardsuit);
     }
 
     enum Suit{

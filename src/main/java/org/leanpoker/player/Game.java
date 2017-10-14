@@ -43,7 +43,7 @@ public class Game {
             allCardsInGame.add(new Card(rank, suit));
         }
 
-        JsonArray communityCards = jsonObject.get("community cards").getAsJsonArray();
+        JsonArray communityCards = jsonObject.get("community_cards").getAsJsonArray();
         System.out.println("Community Card size " + communityCards.size() + " Round " + round);
         for (int i = 0; i < communityCards.size(); i++) {
             JsonObject oneCard = communityCards.get(i).getAsJsonObject();

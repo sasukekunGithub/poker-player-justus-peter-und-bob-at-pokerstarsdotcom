@@ -37,7 +37,9 @@ public class Game {
             JsonObject oneCard = ourCards.get(i).getAsJsonObject();
             System.out.println("One Card ermittelt");
             String rank = oneCard.get("rank").getAsString();
+            System.out.println("rank" + rank);
             String suit = oneCard.get("suit").getAsString();
+            System.out.println("suit" + suit);
             allCardsInGame.add(new Card(rank, suit));
             System.out.println("Card addded");
         }

@@ -31,14 +31,14 @@ public class Game {
         ourLastBet = ourPlayer.get("bet").getAsInt();
 
         JsonArray ourCards = ourPlayer.get("hole_cards").getAsJsonArray();
+        System.out.print("Card size " + ourCards.size()  +" Round " + round);
+            for (int i = 0; i < ourCards.size(); i++) {
 
-        for(int i=0; i<ourCards.size();i++) {
-
-            JsonObject oneCard = ourCards.get(i).getAsJsonObject();
-            String rank = oneCard.get("rank").getAsString();
-            String suit = oneCard.get("suit").getAsString();
-            allCardsInGame.add(new Card(rank, suit));
-        }
+                JsonObject oneCard = ourCards.get(i).getAsJsonObject();
+                String rank = oneCard.get("rank").getAsString();
+                String suit = oneCard.get("suit").getAsString();
+                allCardsInGame.add(new Card(rank, suit));
+            }
 
 
 

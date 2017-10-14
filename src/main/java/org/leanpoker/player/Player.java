@@ -1,9 +1,9 @@
 package org.leanpoker.player;
 
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
-import java.util.Map;
 
 public class Player {
 
@@ -12,14 +12,11 @@ public class Player {
     public static int betRequest(JsonElement request) {
         try {
             JsonArray asJsonArray = request.getAsJsonObject().getAsJsonArray("Game");
-            System.out.println(asJsonArray.getAsString());
-            int minimum_raise = asJsonArray.getAsJsonObject().get("minimum_raise").getAsInt();
-            System.out.println("Heureka2");
-            int current_buyin = asJsonArray.getAsJsonObject().get("current_buy_in").getAsInt();
-            System.out.println("Heureka3");
+            for (int i =0;i<asJsonArray.size(); i++) {
+                System.out.print(asJsonArray.get(i).getAsString());
 
 
-            return current_buyin + minimum_raise + 1;
+            } return 1000;
 
         }
         catch (Exception e)
@@ -29,6 +26,19 @@ public class Player {
         }
     }
     public static void showdown(JsonElement game) {
+        try {
+            JsonArray asJsonArray = game.getAsJsonObject().getAsJsonArray("Game");
+            for (int i =0;i<asJsonArray.size(); i++) {
+                System.out.print(asJsonArray.get(i).getAsString());
+
+
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+
+        }
     }
 }
 

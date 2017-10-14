@@ -18,6 +18,7 @@ public class Player {
             int current_buyin = asJsonArray.getAsJsonObject().get("current_buy_in").getAsInt();
             System.out.println("Heureka3");
 
+            
             return current_buyin + minimum_raise + 1;
 
         }

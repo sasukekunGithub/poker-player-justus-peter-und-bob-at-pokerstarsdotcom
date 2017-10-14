@@ -35,7 +35,19 @@ public class Game {
         System.out.println("Card size " + ourCards.size() + " Round " + round);
         for (int i = 0; i < ourCards.size(); i++) {
             JsonObject oneCard = ourCards.get(i).getAsJsonObject();
-            System.out.println("One Card ermittelt");
+
+            String rank = oneCard.get("rank").getAsString();
+
+            String suit = oneCard.get("suit").getAsString();
+
+            allCardsInGame.add(new Card(rank, suit));
+        }
+
+        JsonArray communityCards = jsonObject.get("community cards").getAsJsonArray();
+        System.out.println("Community Card size " + communityCards.size() + " Round " + round);
+        for (int i = 0; i < communityCards.size(); i++) {
+            JsonObject oneCard = communityCards.get(i).getAsJsonObject();
+            System.out.println("Single Community Card ermittelt");
             String rank = oneCard.get("rank").getAsString();
             System.out.println("rank" + rank);
             String suit = oneCard.get("suit").getAsString();
@@ -43,7 +55,6 @@ public class Game {
             allCardsInGame.add(new Card(rank, suit));
             System.out.println("Card addded");
         }
-
 
         System.out.println("SmallBlind" + smallBlind);
         System.out.println("Current_buy_in" + currentBuyIn);

@@ -25,7 +25,7 @@ public class Card {
                 break;
             default:
                 try {
-                    this.rank = Integer.getInteger(rank);
+                    this.rank = Integer.parseInt(rank);
                 }
                 catch(Exception e)
                 {

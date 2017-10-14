@@ -52,9 +52,10 @@ public class Game {
 
     public int bet() {
         if (allCardsInGame.size() == 2 && (allCardsInGame.get(0).rank == allCardsInGame.get(1).rank)) {
-            //TODO:
+            System.out.println("raise");
             return currentBuyIn - ourLastBet + minimumRaise + minimumRaise;
         } else {
+            System.out.println("bet");
             return currentBuyIn - ourLastBet + minimumRaise;
 
         }

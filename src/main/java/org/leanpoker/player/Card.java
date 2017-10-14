@@ -24,7 +24,17 @@ public class Card {
                 this.rank = 14;
                 break;
             default:
-                this.rank = Integer.getInteger(rank);
+                try {
+                    this.rank = Integer.getInteger(rank);
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                    System.out.println("Cast failed");
+                }
+
+
+
 
         }
             Suit a = Suit.valueOf(suit);

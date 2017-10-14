@@ -17,6 +17,7 @@ public class Player {
             JsonObject jsonObject = request.getAsJsonObject();
 
             Game myGame = new Game(jsonObject);
+            System.out.println("Game erfolgreich instantiiert");
             return myGame.bet();
 
         }
@@ -24,6 +25,7 @@ public class Player {
         {
             System.err.println("in bet in catch");
             System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
             return 100;
         }
     }
